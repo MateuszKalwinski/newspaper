@@ -21,6 +21,11 @@ class PostGateway
     public function savePost($request)
     {
         $data = $request->all();
+
+        if (!isset($data->categories)){
+            return redirect('posts/create')->withErrors(['msg' => 'Wybierz przynajmniej jedną kategorię']);
+        }
+
         $validator = Validator::make($data, [
                 'id' => 'nullable|integer',
                 'content' => "required|min:2|max:10000",

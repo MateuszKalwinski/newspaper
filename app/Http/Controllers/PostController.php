@@ -6,6 +6,7 @@ use App\Inposter\Gateways\PostGateway;
 use App\Inposter\Interfaces\PostRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Redis;
 
 
 class PostController extends Controller

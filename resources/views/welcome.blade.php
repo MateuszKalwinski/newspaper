@@ -58,7 +58,7 @@
     <header>
         <!--Navbar -->
         <nav class="navbar navbar-expand-lg scrolling-navbar navbar-dark z-depth-0 fixed-top">
-            <a class="navbar-brand text-black-50" href="#">
+            <a class="navbar-brand text-black-50" href="{{route('posts')}}">
                 <img src="{{asset('/img/logo-inposter.png')}}" alt="newspaper logo">
                 Inposter
             </a>
@@ -94,8 +94,6 @@
                         <a class="nav-link btn primary-color btn-rounded pl-5 pr-5 text-white  waves-effect waves-light rgba-white-slight text-transform-none m-0" href="{{ route('login') }}">{{ __('Zaloguj się') }}</a>
                         @else
                             <a class="nav-link btn primary-color btn-rounded pl-5 pr-5 text-white  waves-effect waves-light rgba-white-slight text-transform-none m-0" href="{{ route('posts') }}">{{ __('Zobacz posty') }}</a>
-
-
                         @endguest
                     </div>
 

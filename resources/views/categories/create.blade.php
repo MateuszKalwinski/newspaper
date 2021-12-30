@@ -32,7 +32,7 @@
                                     <div class="md-form">
                                         <input type="text" id="categoryName" name="categoryName"
                                                class="form-control"
-                                               value="{{$category->name ?? ''}}" required>
+                                               value="{{$category->name ?? ''}}">
                                         <label for="categoryName" class="label-fon">{{ __('Nazwa kategorii *') }}</label>
                                     </div>
                                 </div>

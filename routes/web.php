@@ -17,7 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes([
+
+    'register' => false, // Register Routes...
+
+    'reset' => false, // Reset Password Routes...
+
+    'verify' => false, // Email Verification Routes...
+
+]);
 
 Route::get('/posts/create', [App\Http\Controllers\PostController::class, 'create'])->name('post-create');
 Route::post('/posts/create', [App\Http\Controllers\PostController::class, 'create'])->name('post-create');

@@ -7,6 +7,7 @@ use App\{Inposter\Interfaces\PostRepositoryInterface, Models\Post, Models\PostCa
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
 
 class PostRepository implements PostRepositoryInterface
 {
@@ -67,6 +68,9 @@ class PostRepository implements PostRepositoryInterface
 
         DB::commit();
 
+        $posts = Post::with('postCategory')->get();
+        Redis::set('posts', $posts);
+
         return redirect('posts/create')->with('status', 'Post dodany!');
 
     }
@@ -121,6 +125,10 @@ class PostRepository implements PostRepositoryInterface
         }
 
         DB::commit();
+
+        $posts = Post::with('postCategory')->get();
+        Redis::set('posts', $posts);
+
         return redirect('posts/create')->with('status', 'Post zaktualizowany!');
 
     }
